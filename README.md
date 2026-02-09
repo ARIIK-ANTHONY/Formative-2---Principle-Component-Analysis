@@ -97,7 +97,7 @@ pip install numpy pandas matplotlib jupyter
 ```
 
 **4. Download the Dataset (CRITICAL STEP)**
-⚠️ **You MUST download this file separately - the project won't work without it!**
+ **You MUST download this file separately - the project won't work without it!**
 
 - Visit: https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households
 - Click "Download" button (35MB file)
@@ -290,6 +290,6 @@ This project completes my Formative 2 assignment for Advanced Linear Algebra. I 
 - **Large Files:** Used .gitignore to exclude the 35MB data file from GitHub
 
 ## Data Source
-African Agricultural Survey: https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households
+African Agricultural dataset from Kaggle: https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households
 
 **Submission:** https://github.com/ARIIK-ANTHONY/Formative-2---Principle-Component-Analysis
