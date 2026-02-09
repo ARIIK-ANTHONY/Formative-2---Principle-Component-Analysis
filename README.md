@@ -42,6 +42,16 @@ This project implements PCA entirely from scratch using NumPy, demonstrating mas
 - Python 3.7 or higher
 - pip package manager
 
+**Dataset Download:**
+
+The analysis requires the African agricultural survey dataset. Download it using one of these methods:
+
+**Direct Download (Required):**
+1. Download from Kaggle: [Agricultural Survey of African Farm Households](https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households?select=data.csv)
+2. Save as `data.csv` in the project root directory
+3. Ensure the file is placed in the same directory as the notebook
+4. **Note:** The 35MB data file is excluded from git repository due to size constraints
+
 **Required Dependencies:**
 
 Install the necessary packages using pip:
@@ -69,14 +79,16 @@ print("All packages installed successfully")
 
 ## Usage
 
+**Important:** Before running the analysis, ensure you have downloaded the `data.csv` file as described in the Installation section above.
+
 **Running the Analysis:**
 
 1. Clone or download this repository to your local machine
-2. Ensure the `data.csv` file is placed in the same directory as the notebook
+2. Download and place the `data.csv` file in the same directory as the notebook
 3. Open the Jupyter notebook in your preferred environment:
 
 ```bash
-jupyter notebook Template_PCA_Formative_1[Peer_Pair_Number].ipynb
+jupyter notebook "Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb"
 ```
 
 **Step-by-Step Execution:**
@@ -93,11 +105,12 @@ The notebook is structured in sequential steps that build upon each other:
 
 **Expected Outputs:**
 
-- Detailed analysis of data preprocessing steps and missing value handling
+- Clean, streamlined data preprocessing with essential status information
 - Variance explained by each principal component with cumulative percentages
 - Dimensionality reduction summary showing compression from 1,708 to optimal feature count
 - Side-by-side visualizations comparing original feature space with principal component space
 - Statistical summaries demonstrating successful standardization and transformation
+- Professional output format optimized for academic submission
 
 ## Results Interpretation
 
@@ -113,11 +126,12 @@ The PCA implementation successfully reduces the dimensionality of the African ag
 ```
 Formative-2---Principle-Component-Analysis/
 │
-├── Template_PCA_Formative_1[Peer_Pair_Number].ipynb    # Main analysis notebook
-├── data.csv                                            # African agricultural dataset
+├── Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb # Main analysis notebook
+├── data.csv                                            # African agricultural dataset (excluded from git)
 ├── requirements.txt                                    # Python package dependencies
 ├── README.md                                          # This documentation file
-└── PCA_Assignment_Interactive.py                      # Alternative Python script version
+├── .gitignore                                         # Git ignore patterns
+└── .git/                                              # Git repository metadata
 ```
 
 ## Academic Context
@@ -131,11 +145,11 @@ The choice of African agricultural data aligns with the assignment's emphasis on
 - All mathematical operations implemented using NumPy for educational transparency
 - Standardization follows the explicit formula provided in assignment guidelines
 - Error handling includes edge cases such as zero standard deviation and missing data patterns
+- Streamlined output format with essential information for academic submission
+- Professional code structure with minimal, informative print statements
 - Visualization code optimized for clear interpretation of PCA transformation effects
 - Code documentation emphasizes understanding of underlying mathematical concepts
+- Git repository excludes large data files following best practices
 
 ## References
-
-Waha, K., Zipf, B., Kurukulasuriya, P., & Hassan, R. (2016). An agricultural survey for more than 9,500 African households. *Nature Scientific Data*, 3, 160020. https://doi.org/10.6084/m9.figshare.c.1574094
-
 Dataset source: https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households
