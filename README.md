@@ -61,62 +61,57 @@ This implementation demonstrates my understanding of eigenvalue decomposition, c
 
 ## How to Run My Project
 
-**Step 1: Clone my repository**
+**Quick Start (5 minutes):**
+1. `git clone https://github.com/ARIIK-ANTHONY/Formative-2---Principle-Component-Analysis.git`
+2. `cd Formative-2---Principle-Component-Analysis`
+3. `pip install -r requirements.txt`
+4. Download `data.csv` from [Kaggle](https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households) → put in project folder
+5. `jupyter notebook "Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb"`
+6. Run all cells (Cell → Run All)
+
+**Important:** Step 4 is CRITICAL - you must download the data file separately!
+
+## Installation Instructions
+
+**Step-by-Step Setup Guide:**
+
+**1. Prerequisites Check**
+Make sure you have:
+- Python 3.7 or higher installed
+- pip package manager (comes with Python)
+- Jupyter Notebook or JupyterLab installed
+
+**2. Clone My Repository**
 ```bash
 git clone https://github.com/ARIIK-ANTHONY/Formative-2---Principle-Component-Analysis.git
 cd Formative-2---Principle-Component-Analysis
 ```
 
-**Step 2: Download the dataset**
-You need to download the data file separately because it's too large for GitHub:
-- Go to [Kaggle - Agricultural Survey of African Farm Households](https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households)
-- Download `data.csv` (35MB file)
-- Put it in the same folder as my notebook
-
-**Step 3: Install required packages**
+**3. Install Required Python Packages**
 ```bash
+# Install all dependencies at once
 pip install -r requirements.txt
+
+# OR install individually
+pip install numpy pandas matplotlib jupyter
 ```
 
-**Step 4: Open and run my notebook**
+**4. Download the Dataset (CRITICAL STEP)**
+⚠️ **You MUST download this file separately - the project won't work without it!**
+
+- Visit: https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households
+- Click "Download" button (35MB file)
+- Extract and save `data.csv` in the project root directory
+- The file should be in the same folder as the notebook
+
+**5. Verify Your Setup**
 ```bash
-jupyter notebook "Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb"
+# Test that everything is installed correctly
+python -c "import numpy, pandas, matplotlib; print('All packages ready!')"
+
+# Check if data file exists
+python -c "import os; print('Data file found!' if os.path.exists('data.csv') else 'ERROR: Download data.csv first!')"
 ```
-
-**Important:** Make sure you download the data file first - my code won't work without it!
-
-## Installation Requirements
-
-**What You Need:**
-- Python 3.7 or higher
-- pip (usually comes with Python)
-
-**Required Python Packages:**
-I only used three packages to keep it simple:
-```bash
-pip install numpy pandas matplotlib
-```
-
-Or use my requirements file:
-```bash
-pip install -r requirements.txt
-```
-
-**Test Your Installation:**
-```python
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-print("Ready to run PCA!")
-```
-
-**Download the Dataset:**
-This is crucial - you MUST download the data file separately:
-
-1. Go to [Kaggle](https://www.kaggle.com/datasets/crawford/agricultural-survey-of-african-farm-households)
-2. Download `data.csv` (it's about 35MB)
-3. Save it in the same folder as my notebook
-4. The file is too big for GitHub, so I excluded it using .gitignore
 
 Open Python and verify the packages are correctly installed:
 
@@ -127,40 +122,67 @@ import matplotlib.pyplot as plt
 print("All packages installed successfully")
 ```
 
-## What My Code Does
+## How to Use My PCA Implementation
 
-**Important:** Don't forget to download `data.csv` first!
-
-**Running My Analysis:**
-1. Clone my repository 
-2. Download the data file and put it in the same folder
-3. Open my notebook:
+**Quick Start:**
 ```bash
+# After completing installation above
 jupyter notebook "Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb"
 ```
 
-**What Happens When You Run It:**
+**Detailed Usage Instructions:**
 
-I structured my notebook to follow the assignment requirements step by step:
+**1. Launch the Notebook**
+```bash
+# From your project directory
+jupyter notebook
+# Then click on "Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb"
+```
 
-1. **Load and Explore Data** - I load the CSV and show you the dataset structure
-2. **Handle Missing Values** - I identify and fix all the NaN values (required by rubric)
-3. **Encode Non-Numeric Data** - I properly convert categorical columns to numbers (required by rubric)
-4. **Standardize Features** - I manually apply standardization using the exact formula from class
-5. **Calculate Covariance Matrix** - I compute covariances to understand feature relationships
-6. **Perform Eigendecomposition** - I extract eigenvalues and eigenvectors using np.linalg.eig()
-7. **Sort by Explained Variance** - I sort eigenvalues in descending order (required by rubric)
-8. **Select Optimal Components** - I dynamically choose components for 90% variance retention
-9. **Transform the Data** - I project original data onto principal components
-10. **Create Visualizations** - I show before/after plots with proper axis labels (required by rubric)
+**2. Run All Cells in Order**
+My notebook is designed to run sequentially. You can either:
+- **Option A:** Click "Cell" → "Run All" to execute everything at once
+- **Option B:** Run each cell individually using `Shift + Enter`
 
-**What You'll See:**
-- Clean data preprocessing with status updates
-- Explained variance percentages for each component
-- Automatic selection of ~627 components (from original 1,708 features)
-- Side-by-side plots showing original features vs. principal components
-- Clear demonstration that PC1 has highest variance, PC2 has second highest
-- Evidence that data structure is preserved but rotated to maximize variance
+**3. What Each Section Does:**
+
+**Cell 1-2 (Data Loading):**
+- Loads the 35MB African agricultural dataset
+- Checks for missing file and provides download instructions
+- Shows original dataset dimensions (9,597 × 1,753)
+
+**Cell 3-4 (Data Preprocessing):**
+- Handles missing values using mean imputation
+- Encodes categorical variables (country names, survey responses)
+- Applies manual standardization: `(Data - Mean) / Standard Deviation`
+
+**Cell 5-6 (PCA Implementation):**
+- Calculates covariance matrix using `np.cov()`
+- Performs eigendecomposition with `np.linalg.eig()`
+- Sorts eigenvalues in descending order (highest variance first)
+
+**Cell 7-8 (Component Selection):**
+- Calculates explained variance ratios for each component
+- Dynamically selects components for 90% variance retention
+- Reduces dimensions from 1,708 to ~627 components
+
+**Cell 9 (Visualization):**
+- Creates before/after PCA comparison plots
+- Shows original feature space vs principal component space
+- Demonstrates how PCA rotates data for maximum variance
+
+**4. Expected Outputs:**
+- **Data preprocessing:** Status messages showing successful encoding and standardization
+- **Variance analysis:** Percentage variance explained by each principal component
+- **Dimensionality reduction:** Summary showing 63.3% reduction in features
+- **Visualizations:** Two side-by-side scatter plots comparing original vs transformed data
+- **Mathematical verification:** Confirmation that PC1 > PC2 in terms of variance explained
+
+**5. Troubleshooting:**
+- **"File not found" error:** Download data.csv from Kaggle first
+- **Import errors:** Run `pip install -r requirements.txt`
+- **Jupyter not opening:** Install with `pip install jupyter`
+- **Plots not showing:** Make sure matplotlib is installed
 
 ## My Results
 
@@ -207,24 +229,42 @@ Working with this African agricultural data taught me a lot about both PCA and r
 - **Data Preprocessing:** Proper standardization is crucial - without it, features with larger scales dominate the principal components
 - **Visualization Impact:** Comparing original feature space vs PC space clearly shows how PCA finds the "best" coordinate system for the data
 
-## My Project Files
+## Project Structure & Files
 
 ```
 Formative-2---Principle-Component-Analysis/
 │
-├── Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb  # My main PCA notebook
-├── data.csv                                           # Dataset (you need to download this!)
-├── requirements.txt                                   # Required Python packages
-├── README.md                                          # This file
-├── .gitignore                                         # Excludes large data file
-└── .git/                                              # Git repository
+├── Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb  # MAIN FILE - My PCA implementation
+├── data.csv                                           # DOWNLOAD REQUIRED - African agricultural dataset  
+├── requirements.txt                                   # Python packages needed
+├── README.md                                          # This instruction file
+├── .gitignore                                         # Excludes large data file from git
+└── .git/                                              # Git repository files
 ```
 
-**What Each File Does:**
-- **My Notebook:** Contains all my PCA code with visible outputs (as required by assignment)
-- **Data File:** 9,597 African households with 1,753 features - download separately from Kaggle
-- **Requirements:** Just numpy, pandas, matplotlib - kept it simple
-- **README:** Instructions on how to run my project
+**File Descriptions:**
+
+**`Template_PCA_Formative_1[Peer_Pair_Number] 2.ipynb`**
+- **Purpose:** Main Jupyter notebook containing my complete PCA implementation
+- **Size:** ~15KB
+- **Contents:** All code cells with visible outputs, step-by-step PCA from scratch
+- **How to use:** Open with Jupyter and run cells sequentially
+
+**`data.csv`** 
+- **Purpose:** African Agricultural Survey dataset (source for analysis)
+- **Size:** 35MB (too large for GitHub)
+- **Contents:** 9,597 households × 1,753 features from 11 African countries
+- **How to get:** Download from Kaggle link provided in installation section
+
+**`requirements.txt`**
+- **Purpose:** Lists all Python packages needed to run my code
+- **Contents:** numpy, pandas, matplotlib (minimal dependencies)
+- **How to use:** Run `pip install -r requirements.txt`
+
+**`README.md`**
+- **Purpose:** Complete instructions for installation and usage (this file)
+- **Contents:** Setup guide, usage instructions, project explanation
+- **How to use:** Read this before running anything!
 
 ## Assignment Requirements Met
 
